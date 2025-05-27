@@ -412,9 +412,9 @@ def read_sensor():
         phosphorus_raw = (response[13] << 8 | response[14])
         potassium_raw = (response[15] << 8 | response[16])
         
-        nitrogen = (0.0047 * nitrogen_raw) - 0.09
-        phosphorus = (0.0364 * phosphorus_raw)
-        potassium = (0.4774 * potassium_raw)
+        nitrogen = max(0, (0.0047 * nitrogen_raw) - 0.09)
+        phosphorus = max(0, 0.0364 * phosphorus_raw)
+        potassium = max(0, 0.4774 * potassium_raw)
 
         return {
             "Humedad": humidity,
@@ -833,7 +833,7 @@ def iniciar_servidor_web():
 
             elif "POST /iniciar_captura" in request:
                 if not captura_activa:
-                    timer.init(period=2000, mode=Timer.PERIODIC, callback=manejar_captura)
+                    timer.init(period=1500, mode=Timer.PERIODIC, callback=manejar_captura)
                     captura_activa = True
                 cl.send('HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n')
                 cl.send(ujson.dumps({"message": "Captura iniciada"}))
