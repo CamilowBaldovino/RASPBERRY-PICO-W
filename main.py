@@ -742,7 +742,7 @@ def iniciar_servidor_web():
             const unidades = {
                 "Temperatura": "C",
                 "Humedad": "%",
-                "Nitrógeno": "mg/kg",
+                "Nitrógeno": "%",
                 "Fósforo": "mg/kg",
                 "Potasio": "mg/kg",
                 "Conductividad": "us/cm",
