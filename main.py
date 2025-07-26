@@ -636,7 +636,7 @@ def iniciar_servidor_web():
             <input type="password" name="new_password" id="new_password"><br><br>
             <input type="submit" value="Editar Credenciales">
         </form>
-        <!--
+       
         <h2>Calibración del Sensor</h2>
         <form action="/calibrar_sensor" method="post">
             <h3>Nitrógeno</h3>
@@ -659,7 +659,7 @@ def iniciar_servidor_web():
 
             <input type="submit" value="Calibrar Sensor">
         </form>
-        -->
+        
 
         <h2>Borrar Archivos CSV e Índice</h2>
         <button onclick="borrarArchivos()">Borrar Archivos</button>
