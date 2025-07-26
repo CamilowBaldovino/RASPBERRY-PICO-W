@@ -413,8 +413,8 @@ def read_sensor():
         potassium_raw = (response[15] << 8 | response[16])
         
         nitrogen = max(0, 0.005 * nitrogen_raw)
-        phosphorus = phosphorus_raw
-        # phosphorus = max(0, 0.0364 * phosphorus_raw)
+        # phosphorus = phosphorus_raw
+        phosphorus = max(0, 0.0364 * phosphorus_raw)
         potassium = max(0, 0.4774 * potassium_raw)
 
         return {
